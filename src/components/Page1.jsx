@@ -72,12 +72,12 @@ function Page1() {
   }, []);
 
   const gradientStyle = {
-    background: 'linear-gradient(180deg, #3A4D66 0%, #4A5C76 50%, #0B0D19 100%)',
+    background: 'linear-gradient(180deg, #3A4D66 0%, #0B0D19 50%, #0B0D19 100%)',
     backgroundAttachment: 'fixed',
   };
 
   return (
-    <div style={gradientStyle} className="relative z-0 h-[280vh] overflow-hidden">
+    <div style={gradientStyle} className="relative z-0 h-[225vh] md:h-[300vh] overflow-hidden">
       {/* Fixed-position Logo */}
       <a href="https://www.wcewlug.org/" className="fixed right-5 top-3 z-[100]">
         <img className="w-[10vh] md:w-[18vh]" src="wlug.png" alt="WLUG Logo" />
@@ -96,7 +96,7 @@ function Page1() {
           alt="Moon"
         />
         <img
-          className="mountains absolute top-32 left-20 w-full h-[50vh] object-cover md:left-1 z-35"
+          className="mountains absolute top-32 left-20 w-full h-[35vh] md:h-[50vh] object-cover md:left-1 z-35"
           src="mountains.svg"
           alt="Mountains"
         />
@@ -106,14 +106,14 @@ function Page1() {
           alt="Buildings"
         />
         <img
-          className="trees absolute top-[50vh] md:top-[10vh] md:left-0  w-[100vw] h-[150vh] md:h-[500vh] md:object-cover object-contain z-40"
+          className="trees absolute top-[30vh] md:top-[10vh] md:left-0  w-[100vw] h-[150vh] md:h-[500vh] md:object-cover object-contain z-40"
           src="cliff.svg"
           alt="Cliff"
         />
       </div>
 
       {/* Centered Heading Text */}
-      <div className="text text-white font-bold  md:text-[10vh] text-[4vh] top-4 text-center z-25 pt-32 md:pt-20 whitespace-nowrap">
+      <div className="text text-white font-bold  md:text-[10vh] text-[3vh] top-4 text-center z-25 pt-32 md:pt-20 whitespace-nowrap">
         Walchand Linux Users&#39; Group
       </div>
 
