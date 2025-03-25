@@ -44,27 +44,23 @@ function Page1() {
       const hoverMultiplierTrees = 8;
       const hoverMultiplierText = 12;
 
+      // Determine scaling factor for responsive devices (e.g., mobile)
+      const scaleFactor = window.innerWidth < 768 ? 2 : 1;
+
       if (stars)
-        stars.style.transform = `translate(${easedValue * 200 + hoverX * hoverMultiplierStars}px, ${
-          hoverY * hoverMultiplierStars
-        }px)`;
+        stars.style.transform = `translate(${easedValue * 200 + hoverX * hoverMultiplierStars}px, ${hoverY * hoverMultiplierStars}px) scale(${scaleFactor})`;
       if (moon)
         moon.style.transform = `translate(${hoverX * hoverMultiplierMoon}px, ${Math.min(
           easedValue * 600,
           moonMaxTranslateY
-        ) + hoverY * hoverMultiplierMoon}px)`;
+        ) + hoverY * hoverMultiplierMoon}px) scale(${scaleFactor})`;
       if (mountains)
-        mountains.style.transform = `translate(${hoverX * hoverMultiplierMountains}px, ${
-          easedValue * 400 + hoverY * hoverMultiplierMountains
-        }px)`;
+        mountains.style.transform = `translate(${hoverX * hoverMultiplierMountains}px, ${easedValue * 400 + hoverY * hoverMultiplierMountains}px) scale(${scaleFactor})`;
       if (frontTrees)
-        frontTrees.style.transform = `translate(${hoverX * hoverMultiplierTrees}px, ${
-          easedValue * 300 + hoverY * hoverMultiplierTrees
-        }px)`;
+        frontTrees.style.transform = `translate(${hoverX * hoverMultiplierTrees}px, ${easedValue * 300 + hoverY * hoverMultiplierTrees}px) scale(${scaleFactor})`;
+      // For text, we keep the original transform (no zoom)
       if (text)
-        text.style.transform = `translate(${hoverX * hoverMultiplierText}px, ${
-          easedValue * 350 + hoverY * hoverMultiplierText
-        }px)`;
+        text.style.transform = `translate(${hoverX * hoverMultiplierText}px, ${easedValue * 350 + hoverY * hoverMultiplierText}px)`;
 
       requestAnimationFrame(handleAnimation);
     };
@@ -76,7 +72,7 @@ function Page1() {
   }, []);
 
   const gradientStyle = {
-    background: 'linear-gradient(180deg, #3A4D66 0%, #4A5C76 50%, #5A6A86 100%)',
+    background: 'linear-gradient(180deg, #3A4D66 0%, #4A5C76 50%, #0B0D19 100%)',
     backgroundAttachment: 'fixed',
   };
 
@@ -90,12 +86,12 @@ function Page1() {
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <img
-          className="stars absolute top-0 left-0 w-full h-[100vh] object-cover z-0 opacity-70"
+          className="stars absolute top-0 left-0 w-full h-[40vh] md:h-[100vh] object-cover z-0 opacity-70"
           src="stars.png"
           alt="Stars"
         />
         <img
-          className="moon absolute md:-top-[10vh] -left-[80vh] w-[90vw] h-[50vh] object-cover object-top z-0 mix-blend-screen opacity-80"
+          className="moon absolute top-[10vh] -left-16 md:-top-[10vh] md:-left-[80vh] w-[90vw] md:h-[50vh] object-cover object-top z-0 mix-blend-screen opacity-80"
           src="moon.png"
           alt="Moon"
         />
@@ -105,19 +101,19 @@ function Page1() {
           alt="Mountains"
         />
         <img
-          className="trees absolute -top-[36vh] left-0 w-full h-[150vh] object-cover z-40"
+          className="trees absolute -top-[36vh] left-0 w-full h-[165vh] md:h-[150vh] md:object-cover object-contain z-40"
           src="front_trees.svg"
-          alt="Front Trees"
+          alt="Buildings"
         />
         <img
-          className="trees absolute top-[10vh] left-0 w-[100vw] h-[500vh] object-cover z-40"
+          className="trees absolute top-[50vh] md:top-[10vh] md:left-0  w-[100vw] h-[150vh] md:h-[500vh] md:object-cover object-contain z-40"
           src="cliff.svg"
           alt="Cliff"
         />
       </div>
 
       {/* Centered Heading Text */}
-      <div className="text text-white font-bold text-[2.5vh] md:text-[10vh] text-center z-25 pt-72 md:pt-20 whitespace-nowrap">
+      <div className="text text-white font-bold  md:text-[10vh] text-[4vh] top-4 text-center z-25 pt-32 md:pt-20 whitespace-nowrap">
         Walchand Linux Users&#39; Group
       </div>
 

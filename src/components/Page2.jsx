@@ -21,12 +21,12 @@ function Page2() {
 
   return (
     <div
-      className="page h-full md:h-[160vh] bg-[rgba(0,6,40,0.85)] z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
+      className="page h-full top-[0vh] md:top-[120vh] md:h-[160vh] bg-[rgba(0,6,40,0.85)] z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
       style={{
         position: "absolute",
-        top: "120vh", // Initially placed below Page 1
+        // top: "120vh", // Initially placed below Page 1
         width: "100%",
-        opacity: scrollProgress, // Fade in as you scroll
+        // opacity: scrollProgress, // Fade in as you scroll
         transform: `translateY(${(1 - scrollProgress) * 50}px)`, // Moves up smoothly
         pointerEvents: scrollProgress > 0.1 ? "auto" : "none", // Avoid accidental interactions when hidden
       }}
